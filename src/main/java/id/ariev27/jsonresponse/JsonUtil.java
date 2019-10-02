@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ public class JsonUtil {
     private static ObjectMapper generateDefaultJsonMapper() {
         ObjectMapper om = new ObjectMapper();
 
+        om.enable(SerializationFeature.INDENT_OUTPUT);
         om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         om.setSerializationInclusion(Include.NON_EMPTY);
 
